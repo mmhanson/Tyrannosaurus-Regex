@@ -22,9 +22,11 @@ typedef struct RegexTag
  * Compile a regex into a deterministic finite automata (DFA).
  *
  * @regex_text: text representation of the regex.
- * @return: DFA representation of the regex.
+ * @empty_regex: empty regex struct that this method will populate. Text member
+ *   will be set to @regex_text, make sure it isn't deallocated.
+ * @return: TODO sort out error codes
  */
-Regex regex_compile(char* regex_text);
+short regex_compile(char* regex_text, Regex* empty_regex);
 
 /*
  * Simulate a regex DFA to test if it matches a string.
